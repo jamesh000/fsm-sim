@@ -13,4 +13,5 @@ can either be 0, 1, or e. 0 and 1 are self explanatory. e is epsilon. The behavi
 >similar happens. Without reading any input, the machine splits into multiple
 >copies, one following each of the exiting ε-labeled arrows and one staying at the
 >current state. Then the machine proceeds nondeterministically as before.
-So that is how it works in this simulator.
+
+So that is how it works in this simulator. Example definitions can be found in the examples folder.
