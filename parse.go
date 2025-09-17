@@ -28,7 +28,7 @@ func parse(tokens [][]string) (*state, error) {
 		if line[0][0] == '(' {
 			// check for multiple starts
 			if startState != nil {
-				return nil, fmt.Errorf("second start state defined on line %d", i)
+				return nil, fmt.Errorf("second start state defined on line %d", i+1)
 			}
 
 			startState = s
@@ -58,7 +58,7 @@ func parse(tokens [][]string) (*state, error) {
 			target := stateMap[cTo[1]]
 
 			if target == nil {
-				return nil, fmt.Errorf("invalid state name %q on line %d", cTo[1], i)
+				return nil, fmt.Errorf("invalid state name %q on line %d", cTo[1], i+1)
 			}
 
 			// append the target to the appropriate transition array
@@ -69,7 +69,7 @@ func parse(tokens [][]string) (*state, error) {
 			} else if c == "e" {
 				stateMap[stateName].epsilonTransitions = append(stateMap[stateName].epsilonTransitions, target)
 			} else {
-				return nil, fmt.Errorf("invalid character %q on line %d", c, i)
+				return nil, fmt.Errorf("invalid character %q on line %d", c, i+1)
 			}
 		}
 	}

@@ -5,18 +5,6 @@ import (
 	"os"
 )
 
-type state struct {
-	name               string
-	transitions        [2][]*state
-	epsilonTransitions []*state
-	final              bool
-}
-
-type partialExe struct {
-	s              *state
-	remainingInput string
-}
-
 func main() {
 	args := os.Args[1:]
 
@@ -45,5 +33,15 @@ func main() {
 
 	//fmt.Println("Parsed successfully, startstate with arrays", *startState, startState.transitions[0][0], startState.transitions[1][0])
 
-	execute(startState, str)
+	result, err := execute(startState, str)
+
+	if err != nil {
+		panic(err)
+	}
+
+	if result {
+		fmt.Println("Very cool")
+	} else {
+		fmt.Println("How unfortunate")
+	}
 }
