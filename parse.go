@@ -35,7 +35,9 @@ func parse(tokens [][]string) (*state, error) {
 
 			// clip the signifier
 			line[0] = line[0][1:]
-		} else if line[0][0] == ')' {
+		}
+
+		if line[0][0] == ')' {
 			s.final = true
 
 			// clip the signifier
