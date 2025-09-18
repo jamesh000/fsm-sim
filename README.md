@@ -7,7 +7,8 @@ Only strings of {0, 1} are supported. Because I am lazy and that is all that is 
 
 ## FSM Definition Syntax
 Each line defines one state and its transitions. First the state name is given. The only character in the state name that is important is
-the first. If it is `(`, this state is the sole initial state. If it is `)`, this state is a final state. Then there is a list of transitions seperated by whitespace.
+the first. If it is `(`, this state is the sole initial state. If it is `)`, this state is a final state. If the intial state is also a final
+state, put `()`. Then there is a list of transitions seperated by whitespace.
 Each transition is of the form `<character>:<state-name>` are represents a transition to the named state on that character. The character
 can either be 0, 1, or e. 0 and 1 are self explanatory. e is epsilon. The behavior is described in my textbook as follows:
 
